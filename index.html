@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<script src="https://unpkg.com/vue@2.4.2"></script>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+		<!--<script src="main.js"></script>-->
+	</head>
+	<body>
+
+		<div id="root">
+
+
+
+
+			<h2 class="head-text">Ordered books</h2>
+
+			<ul v-if="completedBooks.length >0">
+				<li v-for="book in completedBooks">
+
+					<label>
+
+						<input type="checkbox" v-model="book.completed"> {{book.description}}
+					</label>
+				</li>
+
+			</ul>
+
+			<p v-else class="messageone"> You have no books in order list. </p>
+
+			<h2 class="head-text">Removed books</h2>
+
+			<ul v-if="incompletedBooks.length >0">
+				<li v-for="book in incompletedBooks">
+
+
+					<label>
+
+						<input type="checkbox" v-model="book.completed"> {{book.description}}
+					</label>
+				</li>
+
+			</ul>
+
+			<p v-else class="messagetwo"> No books in removed list,Thanks! </p>
+
+
+		</div>
+
+
+
+
+
+
+
+<script>
+
+new Vue ({
+
+el:'#root',
+data: {
+
+    books: [
+
+		{description:'Sapiens: A Brief History of Humankind, Author: Yuval Noah Harari.', completed:false },
+        {description:'Homo Deus: A Brief History of Tomorrow, Author: Yuval Noah Harari.', completed:false },
+        {description:'African Civilizations: An Archaeological Perspective, Author: Graham Connah. ', completed:true },
+        {description:'Astrophysics for People in a Hurry, Author: Neil deGrasse Tyson.', completed:true },
+        {description:'Cosmos, Author: Carl Sagan.', completed:true },
+        {description:'The Elegant Universe: Superstrings, Hidden Dimensions, and the Quest for the Ultimate Theory, Author: Brian Greene', completed:false },
+		{description:'Calculating the Cosmos: How Mathematics Unveils the Universe, Author: Ian Stewart', completed:true}
+	]
+
+
+},
+
+	computed: {
+
+
+        completedBooks() {
+            return this.books.filter(book => book.completed)
+        },
+
+        incompletedBooks() {
+
+            return this.books.filter(book => !book.completed)
+
+        }
+
+
+	}
+
+
+
+
+})
+			
+		</script>
+	</body>
+</html>

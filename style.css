@@ -1,0 +1,32 @@
+ul {
+
+    list-style-type:none;
+
+}
+
+
+ul>li{
+
+    font-family: "Nunito";
+    color: #843333;
+}
+
+.head-text{
+
+    font-family: 'Nunito';
+    font-weight: 500;
+
+}
+
+.messagetwo{
+
+    color: #1c581c;
+    font-weight: 600;
+    font-family: nunito;
+}
+
+.messageone{
+    font-weight: 600;
+    font-family: nunito;
+    color: red;
+}
